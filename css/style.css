@@ -2819,4 +2819,24 @@ h1, h2, h3, h4, h5,
   background-color: #4d4d4d;
 }
 
+@media (min-width: 1200px) {
+  .booking-embed {
+  border: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 2350px;
+  }
+}
+
+@media (max-width: 1199px) {
+  .booking-embed {
+  border: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 3150px;
+  }
+}
+
 /*# sourceMappingURL=style.css.map */
