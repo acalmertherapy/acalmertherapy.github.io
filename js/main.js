@@ -255,6 +255,45 @@ jQuery(document).ready(function($) {
 	};
 	siteRangeSlider();
 
+	window.hideTransitionNoticeModal = function() {
+		var $modal = $('#transitionNoticeModal');
+		if ( $modal.length > 0 && $modal.hasClass('show') ) {
+			$modal.addClass('closing').removeClass('show');
+			setTimeout(function() {
+				$modal.css('display', 'none').removeClass('closing');
+				$('body').removeClass('modal-open');
+			}, 250);
+		}
+	};
+
+	var showTransitionNoticeModal = function() {
+		var $modal = $('#transitionNoticeModal');
+		if ( $modal.length > 0 ) {
+			$modal.css('display', 'flex');
+			setTimeout(function() {
+				$modal.addClass('show');
+			}, 10);
+			$('body').addClass('modal-open');
+
+			$modal.on('click', function(e) {
+				if ( $(e.target).is($modal) ) {
+					hideTransitionNoticeModal();
+				}
+			});
+
+			$modal.find('.close').on('click', function(e) {
+				e.preventDefault();
+				hideTransitionNoticeModal();
+			});
+
+			$(document).on('keydown', function(e) {
+				if ( e.key === 'Escape' || e.keyCode === 27 ) {
+					hideTransitionNoticeModal();
+				}
+			});
+		}
+	};
+	showTransitionNoticeModal();
 
 	var counter = function() {
 		
