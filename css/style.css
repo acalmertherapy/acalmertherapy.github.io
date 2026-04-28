@@ -2819,6 +2819,78 @@ h1, h2, h3, h4, h5,
   background-color: #4d4d4d;
 }
 
+.transition-notice-modal {
+  position: fixed;
+  inset: 0;
+  display: none;
+  opacity: 0;
+  z-index: 1050;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(8px);
+  padding: 1.5rem;
+  transition: opacity .25s ease;
+}
+
+.transition-notice-modal.show {
+  display: flex;
+  opacity: 1;
+}
+
+.transition-notice-modal.closing {
+  opacity: 0;
+}
+
+.modal-content.transition-notice {
+  background: #ffffff;
+  color: #222222;
+  border: none;
+  border-radius: 1rem;
+  box-shadow: 0 1.5rem 3rem rgba(0, 0, 0, 0.18);
+  font-family: 'Rubik', sans-serif;
+  max-width: 760px;
+  width: 100%;
+  position: relative;
+  transform: translateY(-25px);
+  opacity: 0;
+  transition: transform .25s ease, opacity .25s ease;
+}
+
+.transition-notice-modal.show .modal-content.transition-notice {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.transition-notice-modal.closing .modal-content.transition-notice {
+  transform: translateY(-25px);
+  opacity: 0;
+}
+
+.transition-notice-modal .close {
+  color: #222222;
+  opacity: 1;
+  font-size: 1.75rem;
+}
+
+.transition-notice-modal .modal-body {
+  padding: 3rem 2.5rem;
+}
+
+.transition-notice-modal h4 {
+  font-weight: 700;
+}
+
+body.modal-open {
+  overflow: hidden;
+}
+
+@media (max-width: 767.98px) {
+  .transition-notice-modal .modal-content.transition-notice {
+    margin: 0;
+  }
+}
+
 @media (min-width: 1200px) {
   .booking-embed {
   border: none;
